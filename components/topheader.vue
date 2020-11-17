@@ -1,7 +1,7 @@
 <template>
     <div >
            <!-- Header -->
-            <nav class="w-full p-3 pt-4 flex justify-between flex-wrap fixed bg-theme_primary" >
+            <nav class="w-full p-3 pt-4 flex justify-between flex-wrap fixed bg-theme_primary z-50" >
                 
                     <nuxt-link to="/home" class="mr-auto lg:mx-auto flex ">
                         <div class="w-6 h-6" >
@@ -12,7 +12,7 @@
 
                     <nuxt-link to="/home" class="mx-auto  flex text-primary text-md items-start" >
                         <span class=" font-bold text-xl"> 
-                            BootWind Starter
+                            Task 1
                         </span> 
                     </nuxt-link>
 

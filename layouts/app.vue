@@ -1,7 +1,7 @@
 <template>
 <div :class="settings">
     <topheader />
-    <settings />
+    <settings class="z-50" />
     <main>
         <transition
           name="slide-fade"

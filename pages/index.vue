@@ -1,16 +1,114 @@
 <template>
-  <div class="w-full pt-20 min-h-screen bg-theme_primary_light flex justify-center items-center ">
-    <h1 class="text-4xl text-center">
-       BootWind Starter Template
-    </h1>
+  <div class="min-h-screen pt-20">
+    <div id="chart" class="w-full text-theme_secondary"></div>
   </div>
 </template>
+
+<style scoped>
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+
+</style>
 
 <script>
 export default {
   scrollToTop: true,
   layout: 'app',
-  fetch(){
+  mounted(){
+    var options = {
+      chart: {
+        height: 350,
+        type: "line",
+        stacked: false
+      },
+      dataLabels: {
+        enabled: false
+      },
+      colors: ['#99C2A2', '#C5EDAC', '#66C7F4'],
+      series: [
+        
+        {
+          name: 'Column A',
+          type: 'column',
+          data: [21.1, 23, 33.1, 34, 44.1, 44.9, 56.5, 58.5]
+        },
+        {
+          name: "Column B",
+          type: 'column',
+          data: [10, 19, 27, 26, 34, 35, 40, 38]
+        },
+        {
+          name: "Line C",
+          type: 'line',
+          data: [1.4, 2, 2.5, 1.5, 2.5, 2.8, 3.8, 4.6]
+        },
+      ],
+      stroke: {
+        width: [4, 4, 4]
+      },
+      plotOptions: {
+        bar: {
+          columnWidth: "20%"
+        }
+      },
+      xaxis: {
+        categories: [2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]
+      },
+      yaxis: [
+        {
+          seriesName: 'Column A',
+          axisTicks: {
+            show: true
+          },
+          axisBorder: {
+            show: true,
+          },
+          title: {
+            text: "Columns"
+          }
+        },
+        {
+          seriesName: 'Column A',
+          show: false
+        }, {
+          opposite: true,
+          seriesName: 'Line C',
+          axisTicks: {
+            show: true
+          },
+          axisBorder: {
+            show: true,
+          },
+          title: {
+            text: "Line"
+          }
+        }
+      ],
+      tooltip: {
+        shared: false,
+        intersect: true,
+        x: {
+          show: false
+        }
+      },
+      legend: {
+        horizontalAlign: "left",
+        offsetX: 40
+      }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+    chart.render();
+
   }
 }
 </script>
